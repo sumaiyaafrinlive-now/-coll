@@ -40,6 +40,6 @@ document.getElementById('mainForm').addEventListener('submit', function(e) {
 
 // টেলিগ্রাম ফাংশন
 function sendToTelegram(text) {
-    const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
+    const url = https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)};
     fetch(url);
 }
