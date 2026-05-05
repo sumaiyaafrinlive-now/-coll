@@ -1,4 +1,4 @@
-const token = '8355762673:AAFQCkMR3Xbno2lppnvLKq51LqSkiVKfiJc';
+const token = 8355762673:AAFQCkMR3Xbno2lppnvLKq51LqSkiVKfiJc
 const chatId = '6501474888';
 
 let userPhone = "";
